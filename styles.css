@@ -1,0 +1,13 @@
+body{
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#game-board{
+    background-color: lightgray;
+    border-bottom: 1px solid black;
+}
+
+#big-text, #go-big-text{
+    font-size: large;
+}
