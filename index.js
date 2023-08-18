@@ -45,6 +45,7 @@ let score = 0;
 let gameOverBigText;
 let introText;
 let choleraInterval;
+let scoreText;
 
 
 window.onload = function(){
@@ -56,6 +57,10 @@ window.onload = function(){
 
     gameOverBigText = document.getElementById("go-big-text");
     introText = document.getElementById("big-text");
+    scoreText = document.getElementById("score");
+    scoreText.style.marginRight = (window.innerWidth - boardWidth) / 2;
+    scoreText.style.marginLeft = (window.innerWidth - boardWidth) / 2;
+    scoreText.style.width = boardWidth;
 
     loadingMenu();
 }
@@ -148,17 +153,20 @@ function mainGameLoop(){
 
     // display the score
     // eventually do something else with this ie stick outside the canvas
-    context.fillStyle="black";
-    context.font="20px courier";
+    // context.fillStyle="black";
+    // context.font="20px courier";
     score++;
-    context.fillText(score, 5, 20);
+    // context.fillText(score, 5, 20);
+    scoreText.innerHTML = `Score: ${score}`;
 }
 
 function movePerson(e){
     if ((e.code == "Space" || e.code == "ArrowUp" || e.type == "click") && person.y == personY){
         // jump 
         velocityY = -10
-    }// add an elif with move straight back to ground behaviour
+    } else if (e.code =="ArrowDown"){
+        person.y = personY;
+    }
 }
 
 function placeCholera(){

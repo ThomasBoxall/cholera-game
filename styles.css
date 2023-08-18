@@ -1,13 +1,19 @@
 body{
     font-family: sans-serif;
     text-align: center;
+    background-color: #121212;
+    color: #ffffff;
 }
 
 #game-board{
-    background-color: lightgray;
-    border-bottom: 1px solid black;
+    background-color: #121212;
+    border-bottom: 1px solid grey;
 }
 
 #big-text, #go-big-text{
     font-size: large;
+}
+
+#score{
+    text-align: right;
 }
