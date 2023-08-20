@@ -105,7 +105,7 @@ function starGame(){
     velocityY = VELOCITYY_FIXED;
     gravity = GRAVITY_FIXED;
     
-    choleraInterval = setInterval(placeCholera, 1000) // 1000ms
+    choleraInterval = setInterval(placeCholera, 500) // 1000ms
     document.addEventListener("keydown", movePerson);
     document.addEventListener("click", movePerson);
     mainGameLoop();    
@@ -155,7 +155,7 @@ function mainGameLoop(){
 }
 
 function movePerson(e){
-    if ((e.code == "Space" || e.code == "ArrowUp" || e.type == "click") && person.y == personY){
+    if ((e.code == "Space" || e.code == "ArrowUp" || e.type == "click") && person.y > 0 + personHeight ){
         // jump 
         velocityY = -10
     } else if (e.code =="ArrowDown"){
@@ -167,14 +167,18 @@ function placeCholera(){
     let cholera = {
         img : choleraImg,
         x : choleraX,
-        y : choleraY,
+        y : randomInteger(0, choleraY),
         width : choleraWidth,
         height: choleraHeight
     }
 
-    choleraArray.push(cholera);
+    if (Math.random() > 0.5){
+        choleraArray.push(cholera);
+    }
 
-    if (choleraArray.length > 5){
+    
+
+    if (choleraArray.length > 7){
         choleraArray.shift(); // deletes first element from the array to keep it short
     }
 }
@@ -185,3 +189,7 @@ function detectCollisions(a, b){
            a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
            a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
 }
+
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
