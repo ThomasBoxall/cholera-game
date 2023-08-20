@@ -13,8 +13,30 @@ body{
 
 #big-text, #go-big-text{
     font-size: large;
+    text-align: center;
 }
 
 #score{
     text-align: right;
+}
+
+h1{
+    text-align: center;
+}
+
+.nav{
+    text-align: right;
+}
+
+a{
+    color: white;
+}
+
+p{
+    text-align: left;
+}
+
+.container{
+    width: 80%;
+    margin: 0px auto;
 }
