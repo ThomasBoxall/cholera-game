@@ -133,7 +133,7 @@ function mainGameLoop(){
     // loop thru choleras and draw them on canvas also check for collisions and kill person if touching
     for (let i = 0; i < choleraArray.length; i++){
         let cholera = choleraArray[i];
-        cholera.x += velocityX; // moves cholera along desired amount
+        cholera.x += (velocityX - Math.floor(score/1000)); // moves cholera along desired amount
         context.drawImage(cholera.img, cholera.x, cholera.y, cholera.width, cholera.height);
 
         // now detect collisions
